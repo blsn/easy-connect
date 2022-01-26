@@ -1,6 +1,4 @@
 ### easy-connect
+### PSN Interfacing Solution
 
-## Device interface
-
-# PSN
 

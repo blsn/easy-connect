@@ -15,6 +15,7 @@
 
 
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/sidebar.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -26,13 +27,17 @@
         @can('logged-in')
             @include('inc.sidebar')
         @endcan
-        <main class="py-4">
-            <div class="container">
-                @include('partials.alerts')
-                @yield('content')
-            </div>
-        </main>
+        <div class="height-100 bg-light">
+
+            <main class="py-4">
+                <div class="container">
+                    @include('partials.alerts')
+                    @yield('content')
+                </div>
+            </main>
+
+        </div>
     </div>
-    <script src="{{ asset('js/sidebar.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/sidebar.js') }}" defer></script> --}}
 </body>
 </html>
