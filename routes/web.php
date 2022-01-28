@@ -40,3 +40,10 @@ Route::get('/admin', [App\Http\Controllers\PagesController::class, 'index'])->na
 Route::group(['prefix' => 'admin'], function () {
     Auth::routes();
 });
+
+// Route::get('/global', function() {
+//     return view('global');
+// });
+
+Route::get('/global', [App\Http\Controllers\MenusController::class, 'global'])->name('global');
+Route::get('/management', [App\Http\Controllers\MenusController::class, 'management'])->name('management');
