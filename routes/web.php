@@ -41,9 +41,19 @@ Route::group(['prefix' => 'admin'], function () {
     Auth::routes();
 });
 
-// Route::get('/global', function() {
-//     return view('global');
+// Route::get('/global', [App\Http\Controllers\MenusController::class, 'global'])->name('global'); // TO DELETE
+// Route::get('/management', [App\Http\Controllers\MenusController::class, 'management'])->name('management'); // TO DELETE
+
+// Route::prefix('admin')->middleware('auth')->name('admin.')->group(function() { // // TO DELETE
+    // Route::get('/global', [App\Http\Controllers\MenusController::class, 'global'])->name('global');
+    // Route::get('/management', [App\Http\Controllers\MenusController::class, 'management'])->name('management');
 // });
 
-Route::get('/global', [App\Http\Controllers\MenusController::class, 'global'])->name('global');
-Route::get('/management', [App\Http\Controllers\MenusController::class, 'management'])->name('management');
+// Route::get('/solution', [App\Http\Controllers\SolutionsController::class, 'index'])->name('solution'); // TO DELETE
+
+Route::prefix('admin')->middleware('auth')->name('admin.')->group(function() {
+    Route::get('/management', [App\Http\Controllers\Menus\ManagementsController::class, 'index'])->name('management');
+    Route::get('/setting', [App\Http\Controllers\Menus\SettingsController::class, 'index'])->name('setting');
+    Route::get('/solution', [App\Http\Controllers\Menus\SolutionsController::class, 'index'])->name('solution');
+});
+

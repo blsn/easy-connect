@@ -25,7 +25,7 @@
 <body id="body-pd" class="body-pd">
     <div id="app">
         @include('inc.navbar')
-            @include('inc.sidebar')
+        @include('inc.sidebar')
         <div class="height-100 bg-light">
 
             <main class="py-4">
